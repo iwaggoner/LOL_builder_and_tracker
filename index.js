@@ -71,6 +71,11 @@ app.get('/champs/:name', isLoggedIn, (req, res)=>{
     console.log(champs.data[name])
 })
 
+app.get('/items', isLoggedIn, (req, res) => {
+    
+
+})
+
 
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
