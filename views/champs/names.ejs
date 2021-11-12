@@ -1,0 +1,18 @@
+
+<h2><%= name %></h2>
+
+<img src="/champion/tiles/<%= name %>_0.jpg" alt = "../img/champion/centered/<%= name %>_0.jpg">
+
+<h3>
+    <%= champsObj.data[name].title%>
+</h3>
+
+<h4>
+    <% champsObj.data[name].tags.forEach((el)=>{ %>
+
+       category : <%= el %> <br>
+
+    <% }) %>
+</h4>
+
+<p> <%= champsObj.data[name].blurb %></p>
