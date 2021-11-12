@@ -1,16 +1,22 @@
 {
   "development": {
-    "database": "express_auth_development",
+    "username": "isaac",
+    "password": "Soccer2020", 
+    "database": "LOL-builder-tracker_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "express_auth_test",
+    "username": "isaac",
+    "password": "Soccer2020",
+    "database": "LOL-builder-tracker_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "express_auth_production",
+    "username": "isaac",
+    "password": "Soccer2020",
+    "database": "LOL-builder-tracker_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
