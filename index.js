@@ -4,20 +4,16 @@ const app = express()
 const ejsLayouts = require('express-ejs-layouts')
 const session = require('express-session')
 const passport = require('./config/ppConfig')
+const axios = require('axios')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
-const fs = require('fs')
-const champData = fs.readFileSync('11.22.1/data/en_US/champion.json')
-const champs = JSON.parse(champData)
-const itemData = fs.readFileSync('11.22.1/data/en_US/item.json')
-const items = JSON.parse(itemData)
+
 
 
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
-app.use(express.static('public'));
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
@@ -59,20 +55,31 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
-app.get('/champs', isLoggedIn, (req, res)=> {
-    const arrayOfChamps = Object.getOwnPropertyNames(champs.data)
 
-    res.render('champs/champ', {champsObj : champs, champsNames: arrayOfChamps})
+app.get('/champs', isLoggedIn, (req, res)=> {
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+    .then(function (response) {
+        const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
+        res.render('champs/champ', {champsObj : response.data, champsNames: arrayOfChamps})
+    })
+    .catch(error =>{
+        console.error
+    })
 })
 
 app.get('/champs/:name', isLoggedIn, (req, res)=>{
     const name = req.params.name
-    res.render('champs/names', {champsObj : champs, name: name})
-    console.log(champs.data[name])
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+    .then(function (response) {
+        res.render('champs/names', {champsObj : response.data, name: name})
+    })
+    .catch(error =>{
+        console.error
+    })
 })
 
 app.get('/items', isLoggedIn, (req, res) => {
-    
+
 
 })
 
