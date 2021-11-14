@@ -1,12 +1,14 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const parser = require("body-parser")
 const ejsLayouts = require('express-ejs-layouts')
 const session = require('express-session')
 const passport = require('./config/ppConfig')
 const axios = require('axios')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
+const { response } = require('express')
 
 
 
@@ -80,7 +82,46 @@ app.get('/champs/:name', isLoggedIn, (req, res)=>{
 
 app.get('/items', isLoggedIn, (req, res) => {
 
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
+    .then(function (response) {
+        const arrayOfItems = Object.getOwnPropertyNames(response.data.data)
+        res.render('items/items', {itemsObj: response.data.data, name: arrayOfItems})
 
+    })
+    .catch(error =>{
+        console.error
+    })
+})
+
+app.get('/items/:id', isLoggedIn, (req, res) => {
+
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
+    .then(function (response) {
+        const id = req.params.id
+        res.render('items/show', {itemsObj: response.data.data, id: id})
+
+    })
+    .catch(error =>{
+        console.error
+    })
+})
+
+app.get('/summoner', isLoggedIn, (req, res) =>{
+    res.render('summoners/search')
+})
+
+app.get('/summoner/results', isLoggedIn, (req, res) => {
+    let name = req.query.summoner
+    
+    axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.SUPER_SECRET_SECRET}`)
+    .then(function (response){
+        console.log(response.data)
+        res.render('summoners/results', {summoner: response.data})
+    })
+    .catch(error =>{
+        console.error
+    })
+    
 })
 
 

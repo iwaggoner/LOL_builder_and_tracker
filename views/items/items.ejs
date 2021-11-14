@@ -1,0 +1,15 @@
+
+<nav>
+    <a href="/champs">Link to Champs Selection</a>
+</nav>
+
+<h2>
+    List of LOL Items
+</h2>
+
+<% name.forEach((el) =>{ %>
+
+    <ul>
+        <li><a href="/items/<%= el %>"><%= itemsObj[el].name %></a></li>
+    </ul>
+<% }) %>

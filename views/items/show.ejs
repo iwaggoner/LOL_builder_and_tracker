@@ -1,0 +1,42 @@
+
+<nav> <a href="/items">Back to Items Page</a>
+</nav>
+
+<h2><%= itemsObj[id].name %></h2>
+
+<img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= id %>.png" alt="image of <%= itemsObj[id].name %>">
+
+<h3>
+    <%= itemsObj[id].plaintext %>
+</h3>
+
+<p> Item cost : <%= itemsObj[id].gold.base %> gold</p>
+
+
+
+
+<% if(itemsObj[id].from != undefined) { %>
+
+    <h3><%= itemsObj[id].name %> builds from below</h3>
+
+    <% itemsObj[id].from.forEach((el) =>{ %>
+        <div>
+            <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %> </h4> </a>
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+        </div>
+    <% }) %>
+<% } %>
+
+
+
+<% if(itemsObj[id].into != undefined) { %>
+
+    <h3><%= itemsObj[id].name %> builds into below</h3>
+
+    <% itemsObj[id].into.forEach((el) =>{ %>
+        <div>
+            <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %></a> </h4>
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+        </div>
+    <% }) %>
+<% } %>
