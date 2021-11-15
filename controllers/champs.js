@@ -19,6 +19,7 @@ router.get('/', isLoggedIn, (req, res)=> {
     })
     .catch(error =>{
         console.error
+        res.render('error')
     })
 })
 
@@ -30,6 +31,7 @@ router.get('/:name', isLoggedIn, (req, res)=>{
     })
     .catch(error =>{
         console.error
+        res.render('error')
     })
 })
 

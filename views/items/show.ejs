@@ -13,8 +13,8 @@
 <p> Item cost : <%= itemsObj[id].gold.base %> gold</p>
 
 <form method="POST" action="/profile/items">
-    <input type="text" name="item" value="<%= itemsObj[id].name %>">
-    <input type="text" name="code" value= "<%= id %>">
+    <input hidden type="text" name="item" value="<%= itemsObj[id].name %>">
+    <input hidden type="text" name="code" value= "<%= id %>">
     <button type="submit">Add to Favorites</button>
 </form>
 

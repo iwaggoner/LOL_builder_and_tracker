@@ -27,6 +27,7 @@ router.get('/results', isLoggedIn, (req, res) => {
     })
     .catch(error =>{
         console.error
+        res.render('error')
     })
     
 })
