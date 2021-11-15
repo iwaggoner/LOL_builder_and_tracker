@@ -37,7 +37,7 @@ router.get('/summoners', isLoggedIn, (req, res) => {
 })
 
 router.post('/summoners', isLoggedIn, (req, res) => {
-    console.log(req.body.code, req.body.item)
+    console.log(req.body.name, req.body.id, req.body.puuid)
     res.render('profile/summoners')
 })
 
