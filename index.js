@@ -11,7 +11,6 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const { response } = require('express')
 
 
-
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
@@ -44,88 +43,18 @@ app.use((req, res, next) => {
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
+app.use('/champs', require('./controllers/champs'))
+app.use('/items', require('./controllers/items'))
+app.use('/summoners', require('./controllers/summoners'))
 
 
 // home route
 app.get('/', (req, res)=>{
-    res.render('home', {})
-})
-
-// profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
-    
-    res.render('profile')
-})
-
-
-app.get('/champs', isLoggedIn, (req, res)=> {
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
-    .then(function (response) {
-        const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
-        res.render('champs/champ', {champsObj : response.data, champsNames: arrayOfChamps})
-    })
-    .catch(error =>{
-        console.error
-    })
-})
-
-app.get('/champs/:name', isLoggedIn, (req, res)=>{
-    const name = req.params.name
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
-    .then(function (response) {
-        res.render('champs/names', {champsObj : response.data, name: name})
-    })
-    .catch(error =>{
-        console.error
-    })
-})
-
-app.get('/items', isLoggedIn, (req, res) => {
-
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
-    .then(function (response) {
-        const arrayOfItems = Object.getOwnPropertyNames(response.data.data)
-        res.render('items/items', {itemsObj: response.data.data, name: arrayOfItems})
-
-    })
-    .catch(error =>{
-        console.error
-    })
-})
-
-app.get('/items/:id', isLoggedIn, (req, res) => {
-
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
-    .then(function (response) {
-        const id = req.params.id
-        res.render('items/show', {itemsObj: response.data.data, id: id})
-
-    })
-    .catch(error =>{
-        console.error
-    })
-})
-
-app.get('/summoner', isLoggedIn, (req, res) =>{
-    res.render('summoners/search')
-})
-
-app.get('/summoner/results', isLoggedIn, (req, res) => {
-    let name = req.query.summoner
-    
-    axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${process.env.SUPER_SECRET_SECRET}`)
-    .then(function (response){
-        console.log(response.data)
-        res.render('summoners/results', {summoner: response.data})
-    })
-    .catch(error =>{
-        console.error
-    })
-    
+    res.render('home',)
 })
 
 
 app.listen(3000, ()=>{
-    console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })

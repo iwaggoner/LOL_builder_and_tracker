@@ -7,6 +7,12 @@
 
 <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
 
+<form method="POST" action="/profile/champs">
+    <input type="text" name="champ" value="<%= name %>">
+    <input type="text" name="key" value= "<%= champsObj.data[name].key %>">
+    <button type="submit">Add to Favorites</button>
+</form>
+
 <h3>
     <%= champsObj.data[name].title%>
 </h3>

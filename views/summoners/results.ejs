@@ -4,3 +4,9 @@
 <h2><%= summoner.name %></h2>
 
 <h3>Summoner level: <%= summoner.summonerLevel %></h3>
+
+<form method="POST" action="/profile/summoners">
+    <input type="text" name="champ" value="<%= summoner.name %>">
+    <input type="text" name="key" value= "<%= champsObj.data[name].key %>">
+    <button type="submit">Add to Favorites</button>
+</form>
