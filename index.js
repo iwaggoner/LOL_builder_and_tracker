@@ -9,11 +9,13 @@ const axios = require('axios')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const { response } = require('express')
+const methodOverride = require('method-override')
 
 
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+app.use(methodOverride('_method'))
 
 
 // body parser middelware

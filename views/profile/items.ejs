@@ -6,6 +6,14 @@
         <li>
             <%= el.name %> <br>
             <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el.code %>.png" alt="Image of item <%= el.code %>">
+            
+            <form method="POST" action="/profile/items/<%= el.code %>?_method=DELETE">
+                <input hidden type="text" name="name" value="<%= el.name %>">
+                <input hidden type="text" name="code" value="<%= el.code %>">
+                <input hidden type="text" name="userId" value="<%= el.userId %>">
+                <button type="submit">Remove Item</button>
+
+            </form>
         </li>
     </ul>
     
