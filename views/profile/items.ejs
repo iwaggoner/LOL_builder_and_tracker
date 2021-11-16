@@ -1,2 +1,12 @@
 
 <h3>Show favorite items here</h3>
+
+<% favoriteItems.forEach((el) => { %>
+    <ul>
+        <li>
+            <%= el.name %> <br>
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el.code %>.png" alt="Image of item <%= el.code %>">
+        </li>
+    </ul>
+    
+<% }) %>

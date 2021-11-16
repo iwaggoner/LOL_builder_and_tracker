@@ -1,2 +1,13 @@
 
 <h3>List of Favorite Champs</h3>
+
+<% favoriteChampions.forEach((el)=>{ %>
+
+    <ul>
+        <li>
+            <h4><%= el.name %></h4>
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= el.name %>.png" alt="Image of champion <%= el.name %>">
+        </li>
+    </ul>
+
+<% }) %>
