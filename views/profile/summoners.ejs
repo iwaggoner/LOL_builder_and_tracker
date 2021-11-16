@@ -5,7 +5,19 @@
 
     <ul>
         <li>
-            <h3><%= el.name %> <br></h3>
+            <h3><%= el.name %> <br></h3> 
+            
+            <form method="POST" action="/summoner-info">
+                <input hidden type="text" name="name" value="<%= el.name %>">
+                <input hidden type="text" name="code" value="<%= el.code %>">
+                <input hidden type="text" name="puuid" value="<%= el.puuid %>">
+                <input hidden type="text" name="profileIconId" value="<%= el.profileIconId %>">
+                <input hidden type="text" name="summonerLevel" value="<%= el.summonerLevel %>">
+                <input hidden type="text" name="userId" value="<%= el.userId %>">
+                <button type="submit">More Info on Summoner</button>
+
+            </form>
+
             <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/profileicon/<%= el.profileIconId %>.png" alt="image of profile icon number <%= el.profileIconId %> ">
 
             <form method="POST" action="/profile/summoners/<%= el.name %>?_method=DELETE">
@@ -15,7 +27,7 @@
                 <input hidden type="text" name="profileIconId" value="<%= el.profileIconId %>">
                 <input hidden type="text" name="summonerLevel" value="<%= el.summonerLevel %>">
                 <input hidden type="text" name="userId" value="<%= el.userId %>">
-                <button type="submit">Remove Item</button>
+                <button type="submit">Remove Summoner</button>
 
             </form>
         </li>

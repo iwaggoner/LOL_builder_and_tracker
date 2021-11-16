@@ -1,0 +1,42 @@
+
+<% if(data.inactive == true){ %>
+    <p>Account is inactive</p>
+<% } else { %>
+
+
+<h3><%= data.summonerName %></h3>
+
+<h4>Rank: <%= data.tier %> <%= data.rank %></h4>
+
+<p>Win Rate: <%= Math.round((data.wins/data.losses)*100 + Number.EPSILON)/100 %>%</p>
+
+
+
+
+<ul>
+    <li>
+        <form method="POST" action="/summoner-info/mastery">
+            <input hidden type="text" name="name" value="<%= summoner.name %>">
+            <input hidden type="text" name="code" value="<%= summoner.code %>">
+            <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
+            <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
+            <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
+            <input hidden type="text" name="userId" value="<%= summoner.userId %>">
+            <button type="submit">Champion Mastery</button>
+        </form>
+    </li>
+    <li>
+        <form method="POST" action="/summoner-info/match-history">
+            <input hidden type="text" name="name" value="<%= summoner.name %>">
+            <input hidden type="text" name="code" value="<%= summoner.code %>">
+            <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
+            <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
+            <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
+            <input hidden type="text" name="userId" value="<%= summoner.userId %>">
+            <button type="submit">Match History</button>
+        </form>
+    </li>
+
+</ul>
+
+<% } %>

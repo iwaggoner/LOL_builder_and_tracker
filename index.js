@@ -49,6 +49,7 @@ app.use('/profile', require('./controllers/profile'))
 app.use('/champs', require('./controllers/champs'))
 app.use('/items', require('./controllers/items'))
 app.use('/summoner', require('./controllers/summoners'))
+app.use('/summoner-info', require('./controllers/summonerInfo'))
 
 
 // home route
