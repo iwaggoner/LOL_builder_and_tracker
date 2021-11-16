@@ -20,7 +20,6 @@ router.get('/items', isLoggedIn, (req, res) => {
         where: {userId: req.user.id}
     })
     .then((foundItems)=>{
-        console.log(foundItems)
         res.render('profile/items', {favoriteItems:foundItems})
     })
     .catch((error)=>{
@@ -38,7 +37,6 @@ router.post('/items', isLoggedIn, (req, res) => {
         }
     })
     .then((createdItem)=>{
-        console.log(req.body.code, req.body.item)
         res.redirect('../profile/items')
     })
     .catch((error)=>{
@@ -52,7 +50,6 @@ router.get('/champs', isLoggedIn, (req, res) => {
         where: {userId: req.user.id}
     })
     .then((foundChampions)=>{
-        console.log(foundChampions)
         res.render('profile/champs', {favoriteChampions: foundChampions})
     })
     .catch((error)=>{
@@ -69,7 +66,7 @@ router.post('/champs', isLoggedIn, (req, res) => {
             userId: req.user.id
         }
     })
-    .then((createdItem)=>{
+    .then((createdChampion)=>{
         console.log(req.body.champ, req.body.key)
         res.redirect('../profile/champs')
     })
@@ -79,12 +76,33 @@ router.post('/champs', isLoggedIn, (req, res) => {
 })
 
 router.get('/summoners', isLoggedIn, (req, res) => {
-    res.render('profile/summoners')
+    db.summoner.findAll({
+        where: {userId: req.user.id}
+    })
+    .then((foundSummoners)=>{
+        console.log(foundSummoners)
+        res.render('profile/summoners', {favoriteSummoners:foundSummoners})
+    })
+    .catch((error)=>{
+        res.render('error')
+    })
+    
 })
 
 router.post('/summoners', isLoggedIn, (req, res) => {
-    console.log(req.body.name, req.body.id, req.body.puuid)
-    res.render('profile/summoners')
+    db.summoner.findOrCreate({
+        where: {
+            name: req.body.name,
+            code: req.body.id,
+            puuid: req.body.puuid,
+            profileIconId: req.body.profileIcon,
+            summonerLevel: req.body.summonerLevel,
+            userId: req.user.id
+        }
+    })
+    .then((createdSummoner) =>{
+    res.redirect('../profile/summoners')
+    })
 })
 
 module.exports = router
