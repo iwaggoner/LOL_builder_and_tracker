@@ -8,10 +8,7 @@
 
 <h4>Rank: <%= data.tier %> <%= data.rank %></h4>
 
-<p>Win Rate: <%= Math.round((data.wins/data.losses)*100 + Number.EPSILON)/100 %>%</p>
-
-
-
+<p>Win Rate: <%= Math.round(data.wins/(data.wins+data.losses)*100)/100 %>%</p>
 
 <ul>
     <li>
