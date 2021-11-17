@@ -28,9 +28,26 @@ router.post('/', isLoggedIn, (req, res)=>{
 
 
 router.post('/mastery', isLoggedIn, (req, res)=>{
-    console.log(req.body)
-    
-    res.render('summonerInfo/mastery')
+    let summonerId = req.body.code
+    let summoner = req.body
+    let topFive = []
+    axios.get(`https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${summonerId}?api_key=${process.env.SUPER_SECRET_SECRET}`)
+    .then((response)=>{
+        for(let i =0;i<5;i++){
+            topFive.push(response.data[i].championId)
+        }
+        axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+        .then((response)=>{
+            let championObj =  response.data.data
+            const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
+            console.log(topFive)
+            res.render('summonerInfo/mastery', 
+                {championObj: championObj,
+                 topFive: topFive, 
+                 champNames: arrayOfChamps
+                })
+        })      
+    })
 })
 
 router.post('/match-history', isLoggedIn, (req, res)=>{
