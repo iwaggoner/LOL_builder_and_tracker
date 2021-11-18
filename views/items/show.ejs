@@ -4,7 +4,7 @@
 
 <h2><%= itemsObj[id].name %></h2>
 
-<img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= id %>.png" alt="image of <%= itemsObj[id].name %>">
+<img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= id %>.png" alt="image of <%= itemsObj[id].name %>">
 
 <h3>
     <%= itemsObj[id].plaintext %>
@@ -26,7 +26,7 @@
     <% itemsObj[id].from.forEach((el) =>{ %>
         <div>
             <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %> </h4> </a>
-            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
         </div>
     <% }) %>
 <% } %>
@@ -40,7 +40,7 @@
     <% itemsObj[id].into.forEach((el) =>{ %>
         <div>
             <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %></a> </h4>
-            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
         </div>
     <% }) %>
 <% } %>

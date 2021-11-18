@@ -28,7 +28,7 @@ router.get('/', isLoggedIn, (req, res)=>{
 
 
 router.get('/:name', isLoggedIn, (req, res)=>{
-    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion/${req.params.name}.json`)
+    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${req.params.name}.json`)
     .then((response)=>{
         console.log(response.data.data[req.params.name])
         let champ = response.data.data[req.params.name]
@@ -46,10 +46,10 @@ router.get('/:name', isLoggedIn, (req, res)=>{
 })
 
 router.post('/:name/level', isLoggedIn, (req, res)=>{
-    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion/${req.params.name}.json`)
+    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${req.params.name}.json`)
     .then((response)=>{
         let champ = response.data.data[req.params.name]
-        axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
+        axios.get("https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/item.json")
         .then((response)=>{
             const arrayOfItems = Object.getOwnPropertyNames(response.data.data)
             res.render('builder/updatedBuild', 

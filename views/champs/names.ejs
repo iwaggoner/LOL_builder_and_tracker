@@ -5,14 +5,23 @@
     
 </div>
 
-<div>
+<div class="centered displayInCol">
     <h2><%= name %></h2>
 
-    <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
+    <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
 
     <form method="POST" action="/profile/champs">
         <input hidden type="text" name="champ" value="<%= name %>">
         <input hidden type="text" name="key" value= "<%= champ[name].key %>">
+        <div class="select">
+            <select name="role">
+              <option value="Top">Top</option>
+              <option value="Mid">Mid</option>
+              <option value="Jungle">Jungle</option>
+              <option value="ADC">ADC</option>
+              <option value="Support">Support</option>
+            </select>
+          </div>
         <button type="submit">Add to Favorites</button>
     </form>
 
@@ -30,7 +39,7 @@
 
     <h4>Passive:<br> <%= champ[name].passive.name %> - <%= champ[name].passive.description.replace(/<.*>/, ' ') %> </h4>
 
-    <p> <%= champ[name].lore %></p>
+    <p><br> Lore: <br><%= champ[name].lore %></p>
 
 
 </div>

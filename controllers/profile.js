@@ -85,6 +85,7 @@ router.post('/champs', isLoggedIn, (req, res) => {
         where: {
             championKey:req.body.key,
             name: req.body.champ,
+            role: req.body.role,
             userId: req.user.id
         }
     })
@@ -97,12 +98,33 @@ router.post('/champs', isLoggedIn, (req, res) => {
     }) 
 })
 
+// Route to update a Champion Role
+router.put('/update/champs/:id', isLoggedIn, (req, res) => {
+        db.champion.update({
+            name: req.body.name,
+            championKey: req.body.championKey,
+            role: req.body.role,
+            userId: req.body.userId
+            },{
+            where: {
+                name: req.body.name,
+                userId: req.user.id
+            }
+        })
+        .then((updatedChampion)=>{
+        console.log(req.body.name)
+        res.redirect('/profile/champs')
+        })
+})
+
+
 // Route to delete Champions from faviortes
 router.delete('/champs/:id', (req,res) => {
     db.champion.destroy({
         where: {
             championKey: req.body.championKey,
             name: req.body.name,
+            role: req.body.role,
             userId: req.body.userId
         }
     })

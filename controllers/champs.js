@@ -12,7 +12,7 @@ const { response } = require('express')
 
 
 router.get('/', isLoggedIn, (req, res)=> {
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json")
     .then(function (response) {
         const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
         res.render('champs/champ', {champsObj : response.data, champsNames: arrayOfChamps})
@@ -25,7 +25,7 @@ router.get('/', isLoggedIn, (req, res)=> {
 
 router.get('/:name', isLoggedIn, (req, res)=>{
     const name = req.params.name
-    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion/${req.params.name}.json`)
+    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/${req.params.name}.json`)
     .then(function (response) {
         res.render('champs/names', {champ : response.data.data, name: name})
     })

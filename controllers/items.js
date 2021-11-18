@@ -13,7 +13,7 @@ const { response } = require('express')
 
 router.get('/', isLoggedIn, (req, res) => {
 
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/item.json")
     .then(function (response) {
         const arrayOfItems = Object.getOwnPropertyNames(response.data.data)
         res.render('items/items', {itemsObj: response.data.data, name: arrayOfItems})
@@ -27,7 +27,7 @@ router.get('/', isLoggedIn, (req, res) => {
 
 router.get('/:id', isLoggedIn, (req, res) => {
 
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/item.json")
+    axios.get("https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/item.json")
     .then(function (response) {
         const id = req.params.id
         res.render('items/show', {itemsObj: response.data.data, id: id})
