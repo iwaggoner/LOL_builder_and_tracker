@@ -4,22 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Express Auth</title>
 </head>
+
 <body>
+
+  <nav class="navbar background-blue" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.leagueoflegends.com/en-us/">
+        <img src="/logo.jpg" width="40" height="80">
+      </a>
+      <% if (!currentUser) { %>
+        <a class="navbar-item red"href="/auth/signup">Signup</a></li>
+        <a class="navbar-item red" href="/auth/login">Login</a></li>
+      <% } else { %>
+        <a class="navbar-item red" href="/auth/logout">Logout</a></li>
+        <a class="navbar-item red" href="/profile">Profile</a></li>
+      <% } %>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <a href="https://developer.riotgames.com/apis" class="navbar-item red">
+          Riot API
+        </a>
+  
+        <a href="https://signup.na.leagueoflegends.com/en/signup/redownload" class="navbar-item red">
+          League of Legends Download
+        </a>
+
+        <a href="https://www.leagueoflegends.com/en-us/news/tags/patch-notes/" class="navbar-item red">
+          Patch Notes
+        </a>
+
+        <a href="https://developer.riotgames.com/" class="navbar-item red">
+          Riot Dev Portal
+        </a>
+
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
     <header>
-        <h1>LOL Tracker</h1>
-        <nav>
-            <ul>
-              <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
-              <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
-              <% } %>
-            </ul>
-          </nav>
+
+      <section class="hero background-blue">
+        <div class="hero-body">
+          <p class="title big red">
+            LOL Tracker
+          </p>
+          <p class="subtitle red">Find and Favorite Champions, Items, and Summoners from League of Legends</p>
+        </div>
+      </section>
     </header>
     <%- include('partials/alerts') %>
     <%- body %> 

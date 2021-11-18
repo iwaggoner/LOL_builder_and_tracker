@@ -1,0 +1,110 @@
+
+
+.red {
+    color:#FFF5EE
+}
+.background-blue {
+    background-color: #2F4F4F;
+}
+
+html, body {
+  background-color: #FFF5EE;
+  margin: 0;
+  height: 100%
+}
+
+.home {
+    max-width: 1000px;
+    max-height: 600px;
+}
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.champs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 10%;
+}
+
+.champ-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.champImg {
+    width: 60px;
+    height: 60px;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 75px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.itemsFav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 15%;
+    height: 200px;
+}
+
+.itemImg {
+    width: 100px;
+    height: 100px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/login.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1000px;
+    height: 600px;
+}
+
+.loginform {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.centeredLogin {
+    display: flex;
+    align-items: center;
+    justify-content: top;
+    margin: 15px;
+}
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    background-image: url('/signup.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 1000px;
+    height: 600px;
+}

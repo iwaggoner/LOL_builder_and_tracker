@@ -16,6 +16,7 @@ const methodOverride = require('method-override')
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 
 // body parser middelware

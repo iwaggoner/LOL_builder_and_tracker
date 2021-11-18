@@ -1,30 +1,36 @@
 
-<nav>
-    <a href="/champs">Back to Champs Page</a>
-</nav>
+<div class="container navbar">
+        <a href="/champs">Back to Champs Page</a>
+        <a href="/profile">Back to Profile Page</a>
+    
+</div>
 
-<h2><%= name %></h2>
+<div>
+    <h2><%= name %></h2>
 
-<img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
+    <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
 
-<form method="POST" action="/profile/champs">
-    <input hidden type="text" name="champ" value="<%= name %>">
-    <input hidden type="text" name="key" value= "<%= champ[name].key %>">
-    <button type="submit">Add to Favorites</button>
-</form>
+    <form method="POST" action="/profile/champs">
+        <input hidden type="text" name="champ" value="<%= name %>">
+        <input hidden type="text" name="key" value= "<%= champ[name].key %>">
+        <button type="submit">Add to Favorites</button>
+    </form>
 
-<h3>
-    <%= champ[name].title %>
-</h3>
+    <h3>
+        <%= champ[name].title %>
+    </h3>
 
-<h4>
-    <% champ[name].tags.forEach((el)=>{ %>
+    <h4>
+        <% champ[name].tags.forEach((el)=>{ %>
 
-       category : <%= el %> <br>
+        category : <%= el %> <br>
 
-    <% }) %>
-</h4>
+        <% }) %>
+    </h4>
 
-<h4>Passive:<br> <%= champ[name].passive.name %> - <%= champ[name].passive.description.replace(/<.*>/, ' ') %> </h4>
+    <h4>Passive:<br> <%= champ[name].passive.name %> - <%= champ[name].passive.description.replace(/<.*>/, ' ') %> </h4>
 
-<p> <%= champ[name].lore %></p>
+    <p> <%= champ[name].lore %></p>
+
+
+</div>

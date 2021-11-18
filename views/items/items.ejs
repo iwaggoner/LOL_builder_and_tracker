@@ -7,9 +7,16 @@
     List of LOL Items
 </h2>
 
+<div class="item-container">
+
 <% name.forEach((el) =>{ %>
 
-    <ul>
-        <li><a href="/items/<%= el %>"><%= itemsObj[el].name %></a></li>
-    </ul>
+    <div class="items">
+        <ul>
+            <li><a href="/items/<%= el %>"><%= itemsObj[el].name %></a></li>
+        </ul>
+    </div>
+
 <% }) %>
+
+</div>
