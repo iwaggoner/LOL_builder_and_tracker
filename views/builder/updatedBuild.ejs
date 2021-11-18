@@ -1,0 +1,13 @@
+
+<h3><%= champ.name %> at level <%= level %></h3>
+
+<a href="/builder/<%= champ.name %>">Back to Builder</a>
+
+<ul>
+    <header>Stats</header>
+    <li>Health : <%= champ.stats.hp + (champ.stats.hpperlevel*level)%></li>
+    <li>Mana : <%= champ.stats.mp + (champ.stats.mpperlevel*level) %></li>
+    <li>Attack Damage : <%= champ.stats.attackdamage + (champ.stats.attackdamageperlevel*level) %></li>
+    <li>Attack Speed : <%= Math.round((champ.stats.attackspeed + ((champ.stats.attackspeedperlevel/100)*level))*100)/100 %> per second</li>
+</ul>
+

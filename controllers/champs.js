@@ -25,9 +25,9 @@ router.get('/', isLoggedIn, (req, res)=> {
 
 router.get('/:name', isLoggedIn, (req, res)=>{
     const name = req.params.name
-    axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+    axios.get(`https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion/${req.params.name}.json`)
     .then(function (response) {
-        res.render('champs/names', {champsObj : response.data, name: name})
+        res.render('champs/names', {champ : response.data.data, name: name})
     })
     .catch(error =>{
         console.error

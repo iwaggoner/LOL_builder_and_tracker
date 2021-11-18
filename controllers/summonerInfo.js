@@ -19,14 +19,20 @@ router.post('/', isLoggedIn, (req, res)=>{
     axios.get(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.SUPER_SECRET_SECRET}`)
     .then((response) =>{
         let data = response.data
+        console.log(data[0])
+        if(data[0] == undefined) {
+            console.log('No ranked Games played')
+            res.render('summonerInfo/nrHome', {summoner: summoner})
+        } else {
         res.render('summonerInfo/home', {data: data[0], summoner: summoner})
+        }
     })
     .catch((error)=>{
         res.render(error)
     })  
 })
 
-
+// Route will pull the summoners top 5 most played champions
 router.post('/mastery', isLoggedIn, (req, res)=>{
     let summonerId = req.body.code
     let summoner = req.body
@@ -40,13 +46,15 @@ router.post('/mastery', isLoggedIn, (req, res)=>{
         .then((response)=>{
             let championObj =  response.data.data
             const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
-            console.log(topFive)
             res.render('summonerInfo/mastery', 
                 {championObj: championObj,
                  topFive: topFive, 
                  champNames: arrayOfChamps
                 })
-        })      
+        })    
+    })
+    .catch((error)=>{
+        res.render('error')
     })
 })
 

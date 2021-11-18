@@ -1,0 +1,21 @@
+
+<h4>Pick a Champion to create a build with</h4>
+
+<p>Must have a champion favorited to create a build for them</p>
+
+<% favoriteChamps.forEach((el) =>{ %>
+
+    <ul>
+        <li>
+            <h5><%= el.name %></h5> <br>
+            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= el.name %>.png" alt="image of favoirte champion <%= el.name %>">
+            <form method="GET" action="builder/<%= el.name %>">
+                <input hidden type="text" name="name" value="<%= el.name %>">
+                <button type="submit">Start a build</button>
+            </form>
+
+        </li>
+
+    </ul>
+
+<% }) %>

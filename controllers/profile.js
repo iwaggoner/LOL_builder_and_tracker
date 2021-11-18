@@ -120,7 +120,6 @@ router.get('/summoners', isLoggedIn, (req, res) => {
         where: {userId: req.user.id}
     })
     .then((foundSummoners)=>{
-        console.log(foundSummoners)
         res.render('profile/summoners', {favoriteSummoners:foundSummoners})
     })
     .catch((error)=>{
@@ -146,8 +145,31 @@ router.post('/summoners', isLoggedIn, (req, res) => {
     })
 })
 
+// Route to update a Summoners Data
+router.put('/update/:id', isLoggedIn, (req, res) => {
+    axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${req.body.name}?api_key=${process.env.SUPER_SECRET_SECRET}`)
+    .then((response)=>{
+        db.summoner.update({
+            name: response.data.name,
+            puuid: response.data.puuid,
+            profileIconId: response.data.profileIcon,
+            summonerLevel: response.data.summonerLevel,
+            },{
+            where: {
+                code: response.data.id,
+                userId: req.user.id
+            }
+        })
+        .then((updatedSummoner)=>{
+        console.log(req.body.name)
+        res.render('profile/update', {summoner: response.data})
+        })
+    })
+})
+
+
 // Route to delete Summoners from faviortes
-router.delete('/summoners/:id', (req,res) => {
+router.delete('/summoners/delete/:id', (req,res) => {
     db.summoner.destroy({
         where: {
             name: req.body.name,

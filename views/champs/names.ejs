@@ -9,20 +9,22 @@
 
 <form method="POST" action="/profile/champs">
     <input hidden type="text" name="champ" value="<%= name %>">
-    <input hidden type="text" name="key" value= "<%= champsObj.data[name].key %>">
+    <input hidden type="text" name="key" value= "<%= champ[name].key %>">
     <button type="submit">Add to Favorites</button>
 </form>
 
 <h3>
-    <%= champsObj.data[name].title%>
+    <%= champ[name].title %>
 </h3>
 
 <h4>
-    <% champsObj.data[name].tags.forEach((el)=>{ %>
+    <% champ[name].tags.forEach((el)=>{ %>
 
        category : <%= el %> <br>
 
     <% }) %>
 </h4>
 
-<p> <%= champsObj.data[name].blurb %></p>
+<h4>Passive:<br> <%= champ[name].passive.name %> - <%= champ[name].passive.description.replace(/<.*>/, ' ') %> </h4>
+
+<p> <%= champ[name].lore %></p>

@@ -1,17 +1,7 @@
 
-<% if(data === []){ %>
-    <p>Account has not played any ranked games this season</p>
-<% } else { %>
 
-<h3><%= data.summonerName %></h3>
-
-<h4>Rank: <%= data.tier %> <%= data.rank %></h4>
-
-<p>Win Rate: <%= (Math.round(data.wins/(data.wins+data.losses)*100)/100) *100 %>%</p>
-
-<p>Total games: <%= data.wins + data.losses %></p>
-
-<% } %>
+<h3><%= summoner.name %></h3>
+<p>No ranked history to show for this season</p>
 
 <ul>
     <li>
