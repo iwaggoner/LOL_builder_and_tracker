@@ -7,7 +7,7 @@
     background-color: #2F4F4F;
 }
 
-html, body, {
+html, body {
   background-color: #FFF5EE;
   margin: 0;
   height: 100%
@@ -44,6 +44,7 @@ html, body, {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #bababa;
 }
 
 .champImg {
@@ -67,6 +68,7 @@ html, body, {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #bababa;
 }
 
 .itemsFav {
