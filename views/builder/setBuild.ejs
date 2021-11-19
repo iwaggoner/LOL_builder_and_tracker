@@ -8,7 +8,7 @@
 <form action="/builder/<%= champ.name %>/level" method="POST">
     <label for="level">Level of Champ</label>
     <input type="number" name="level" min="1" max="18">
-
+    <input hidden type="text" name="name" value="<%= champ.name %>">
     <button type="submit">Change Stats based on level</button>
 </form>
 

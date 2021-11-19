@@ -7,7 +7,7 @@
     <div class="itemsFav">
     
             <%= el.name %> <br>
-            <img class="itemImg" src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/item/<%= el.code %>.png" alt="Image of item <%= el.code %>">
+            <img class="itemImg" src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el.code %>.png" alt="Image of item <%= el.code %>">
             
             <form method="POST" action="/profile/items/<%= el.code %>?_method=DELETE">
                 <input hidden type="text" name="name" value="<%= el.name %>">
