@@ -18,9 +18,9 @@ In this app a psql database is used to store users, and there selected favorite 
 
 Users passwords are hashed and secured using bcrpyt, also passport is used to help verifiy that users are signed in while using the app. 
 
-## Framwork
-
 The app is formated using node express and ejs with views and controllers and a public file for css and images. Dotenv is used to hide the develpment key from Riot  and nodemon used for testing. 
+
+## Framwork
 
 Finaly the framwork bulma was used but node version is not needed feel free to remove from package.json before running npm install. Node body-parser and method-override are used to help CRUD our database with users favoirtes. 
 
