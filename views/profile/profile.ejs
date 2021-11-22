@@ -1,18 +1,24 @@
-<h2><%= currentUser.name %>'s Profile</h2>
+<p class="title is-2 centered"><%= currentUser.name %>'s Profile</p>
 
-<div>
-<ul>
-    <li><a href="/champs">List of Champs</a></li>
-    <li><a href="/items">List of Items</a></li>
-    <li><a href="/summoner">Search for a Summoner</a></li>
-</ul>
+<div class="columns centered">
+    <div class="column">
+        <p class='subtitle is-3'>Search</p>
+        <ul>
+            <li><a href="/champs">List of Champs</a></li>
+            <li><a href="/items">List of Items</a></li>
+            <li><a href="/summoner">Search for a Summoner</a></li>
+        </ul>
+    </div>
 
-<ul>
-    <li><a href="/profile/champs">List of Favorite Champs</a></li>
-    <li><a href="/profile/items">List of Favorite Items</a></li>
-    <li><a href="/profile/summoners">List of Favorite Summoners</a></li>
-    <li><a href="/builder">Create a Build on your favorite Champions</a></li>
-</ul>
+    <div class="column">
+        <p class='subtitle is-3'>Profile Features</p>
+        <ul>
+            <li><a href="/profile/champs">List of Favorite Champs</a></li>
+            <li><a href="/profile/items">List of Favorite Items</a></li>
+            <li><a href="/profile/summoners">List of Favorite Summoners</a></li>
+            <li><a href="/builder">Create a Build on your Favorite Champions</a></li>
+        </ul>
+    </div>
 
 </div>
 
