@@ -1,25 +1,33 @@
-<h2>Set Builder here</h2>
-<a href="/builder">Back to Champs</a>
+<nav class="background-grey boarder">
+    <a class="nav-margin" href="/profile/items">Favorite Items</a>
+    <a class="nav-margin" href="/profile/champs">Favorite Summoners</a>
+    <a class="nav-margin" href="/profile">Back to  Profile</a>
+</nav>
 
-<h3><%= champ.name %></h3>
-
-
-
-<form action="/builder/<%= champ.name %>/level" method="POST">
-    <label for="level">Level of Champ</label>
-    <input type="number" name="level" min="1" max="18">
-    <input hidden type="text" name="name" value="<%= champ.name %>">
-    <button type="submit">Change Stats based on level</button>
-</form>
+<p class="title centered">Set Builder here</p>
 
 
-<ul>
-    <header>Stats</header>
-    <li>Health : <%= champ.stats.hp + (champ.stats.hpperlevel*1) %></li>
-    <li>Mana : <%= champ.stats.mp + (champ.stats.mpperlevel*1) %></li>
-    <li>Attack Damage : <%= champ.stats.attackdamage + (champ.stats.attackdamageperlevel*1) %></li>
-    <li>Attack Speed : <%= Math.round((champ.stats.attackspeed + ((champ.stats.attackspeedperlevel/100)*1))*100)/100 %> per second</li>
-</ul>
+<p class="subtitle centered"><%= champ.name %></p>
 
+
+<div class="centered-in-column">
+
+    <form action="/builder/<%= champ.name %>/level" method="POST">
+        <label for="level">Level of Champ</label>
+        <input type="number" name="level" min="1" max="18">
+        <input hidden type="text" name="name" value="<%= champ.name %>">
+        <button type="submit">Change Stats based on level</button>
+    </form>
+
+
+    <ul>
+        <header>Stats</header>
+        <li>Health : <%= champ.stats.hp + (champ.stats.hpperlevel*1) %></li>
+        <li>Mana : <%= champ.stats.mp + (champ.stats.mpperlevel*1) %></li>
+        <li>Attack Damage : <%= champ.stats.attackdamage + (champ.stats.attackdamageperlevel*1) %></li>
+        <li>Attack Speed : <%= Math.round((champ.stats.attackspeed + ((champ.stats.attackspeedperlevel/100)*1))*100)/100 %> per second</li>
+    </ul>
+
+</div>
 
 
