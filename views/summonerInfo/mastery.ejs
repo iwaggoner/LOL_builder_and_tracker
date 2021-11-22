@@ -1,19 +1,23 @@
 
-<h3>Champion Mastery of Summoner</h3>
+<div class="container centered-in-column">
 
-<p>5 most played champions</p>
+    <h3>Champion Mastery of Summoner</h3>
 
-
-<% topFive.forEach((el) => { %>
-
-    <% champNames.forEach((name)=>{ %>
-        <% if(championObj[name].key == el){ %>
-
-            <h3><%= name %></h3>
-            <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
-
-        <% } %>
-   <% }) %>
+    <p>5 most played champions</p>
 
 
-<% }) %>
+    <% topFive.forEach((el) => { %>
+
+        <% champNames.forEach((name)=>{ %>
+            <% if(championObj[name].key == el){ %>
+
+                <h3><%= name %></h3>
+                <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
+
+            <% } %>
+    <% }) %>
+
+
+    <% }) %>
+
+</div>

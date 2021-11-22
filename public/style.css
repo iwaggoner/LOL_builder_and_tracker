@@ -1,10 +1,24 @@
 
 
 .red {
-    color:#FFF5EE
+    color:#FFF5EE;
+}
+
+.background-color {
+    background-color: #FFF5EE;
 }
 .background-blue {
     background-color: #2F4F4F;
+}
+
+.boarder {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+.background-grey {
+    background-color: #bababa;
 }
 
 html, body {
@@ -12,7 +26,9 @@ html, body {
   margin: 0;
   height: 100%
 }
-
+.nav-margin {
+    margin: 10px;
+}
 
 .home {
     max-width: 1000px;
@@ -26,6 +42,14 @@ html, body {
 
 .centered {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.centered-in-column {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 15px;

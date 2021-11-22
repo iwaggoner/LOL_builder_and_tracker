@@ -1,30 +1,33 @@
 
+<div class="container centered-in-column">
 
-<h3><%= summoner.name %></h3>
-<p>No ranked history to show for this season</p>
+    <h3><%= summoner.name %></h3>
+    <p>No ranked history to show for this season</p>
 
-<ul>
-    <li>
-        <form method="POST" action="/summoner-info/mastery">
-            <input hidden type="text" name="name" value="<%= summoner.name %>">
-            <input hidden type="text" name="code" value="<%= summoner.code %>">
-            <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
-            <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
-            <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
-            <input hidden type="text" name="userId" value="<%= summoner.userId %>">
-            <button type="submit">Champion Mastery</button>
-        </form>
-    </li>
-    <li>
-        <form method="POST" action="/summoner-info/match-history">
-            <input hidden type="text" name="name" value="<%= summoner.name %>">
-            <input hidden type="text" name="code" value="<%= summoner.code %>">
-            <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
-            <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
-            <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
-            <input hidden type="text" name="userId" value="<%= summoner.userId %>">
-            <button type="submit">Match History</button>
-        </form>
-    </li>
+    <ul>
+        <li>
+            <form method="POST" action="/summoner-info/mastery">
+                <input hidden type="text" name="name" value="<%= summoner.name %>">
+                <input hidden type="text" name="code" value="<%= summoner.code %>">
+                <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
+                <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
+                <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
+                <input hidden type="text" name="userId" value="<%= summoner.userId %>">
+                <button type="submit">Champion Mastery</button>
+            </form>
+        </li>
+        <li>
+            <form method="POST" action="/summoner-info/match-history">
+                <input hidden type="text" name="name" value="<%= summoner.name %>">
+                <input hidden type="text" name="code" value="<%= summoner.code %>">
+                <input hidden type="text" name="puuid" value="<%= summoner.puuid %>">
+                <input hidden type="text" name="profileIconId" value="<%= summoner.profileIconId %>">
+                <input hidden type="text" name="summonerLevel" value="<%= summoner.summonerLevel %>">
+                <input hidden type="text" name="userId" value="<%= summoner.userId %>">
+                <button type="submit">Match History</button>
+            </form>
+        </li>
 
-</ul>
+    </ul>
+
+</div>

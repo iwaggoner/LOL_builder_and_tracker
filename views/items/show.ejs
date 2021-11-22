@@ -1,46 +1,53 @@
 
-<nav> <a href="/items">Back to Items Page</a>
+<nav class="background-grey boarder">
+    <a class="nav-margin" href="/items">List of Items</a>
+    <a class="nav-margin" href="/summoner">Search for Summoner</a>
+    <a class="nav-margin" href="/summoner">List of Champs</a>
+    <a class="nav-margin" href="/profile">Back to  Profile</a>
 </nav>
 
-<h2><%= itemsObj[id].name %></h2>
-
-<img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= id %>.png" alt="image of <%= itemsObj[id].name %>">
-
-<h3>
-    <%= itemsObj[id].plaintext %>
-</h3>
-
-<p> Item cost : <%= itemsObj[id].gold.base %> gold</p>
-
-<form method="POST" action="/profile/items">
-    <input hidden type="text" name="item" value="<%= itemsObj[id].name %>">
-    <input hidden type="text" name="code" value= "<%= id %>">
-    <button type="submit">Add to Favorites</button>
-</form>
 
 
-<% if(itemsObj[id].from != undefined) { %>
+    <p class="title centered"><%= itemsObj[id].name %></h2>
 
-    <h3><%= itemsObj[id].name %> builds from below</h3>
+    <div class="container centered-in-column">
+        <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= id %>.png" alt="image of <%= itemsObj[id].name %>">
 
-    <% itemsObj[id].from.forEach((el) =>{ %>
-        <div>
-            <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %> </h4> </a>
-            <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
-        </div>
-    <% }) %>
-<% } %>
+        <h3>
+            <%= itemsObj[id].plaintext %>
+        </h3>
+
+        <p> Item cost : <%= itemsObj[id].gold.base %> gold</p>
+
+        <form method="POST" action="/profile/items">
+            <input hidden type="text" name="item" value="<%= itemsObj[id].name %>">
+            <input hidden type="text" name="code" value= "<%= id %>">
+            <button type="submit">Add to Favorites</button>
+        </form>
+    </div>
 
 
+        <% if(itemsObj[id].from != undefined) { %>
 
-<% if(itemsObj[id].into != undefined) { %>
+            <h3><%= itemsObj[id].name %> builds from below</h3>
 
-    <h3><%= itemsObj[id].name %> builds into below</h3>
+            <% itemsObj[id].from.forEach((el) =>{ %>
+                <div class="items">
+                    <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %> </h4> </a>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+                </div>
+            <% }) %>
+        <% } %>
 
-    <% itemsObj[id].into.forEach((el) =>{ %>
-        <div>
-            <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %></a> </h4>
-            <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
-        </div>
-    <% }) %>
-<% } %>
+
+        <% if(itemsObj[id].into != undefined) { %>
+
+            <h3><%= itemsObj[id].name %> builds into below</h3>
+
+            <% itemsObj[id].into.forEach((el) =>{ %>
+                <div class="items">
+                    <a href="/items/<%= el %>"><h4> <%= itemsObj[el].name %></a> </h4>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/item/<%= el %>.png" alt="image of <%= itemsObj[el].name %>">
+                </div>
+            <% }) %>
+        <% } %>

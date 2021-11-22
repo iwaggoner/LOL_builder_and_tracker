@@ -1,10 +1,20 @@
-<h2>
+<nav class="background-grey boarder">
+    <a class="nav-margin" href="/items">List of Items</a>
+    <a class="nav-margin" href="/champs">List of Champs</a>
+    <a class="nav-margin" href="/profile">Back to  Profile</a>
+</nav>
+
+<p class="title centered">
     Enter summoner name in field below
-</h2>
+</p>
 
-<form method="GET" action="/summoner/results">
-    <label for="summoner name input">Search Summoner Name:</label>
-    <input type="text" name="summoner">
-    <button type="submit">Go</button>
+<div class="container centered-in-column">
 
-</form>
+    <form method="GET" action="/summoner/results">
+        <label for="summoner name input">Search Summoner Name:</label>
+        <input type="text" name="summoner">
+        <button type="submit">Go</button>
+
+    </form>
+
+</div>
