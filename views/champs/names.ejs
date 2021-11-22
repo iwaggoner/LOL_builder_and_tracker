@@ -6,10 +6,10 @@
     <a class="nav-margin" href="/profile">Back to  Profile</a>
 </nav>
 
-<div class="centered displayInCol">
+<div class="content centered displayInCol">
     <h2><%= name %></h2>
 
-    <img src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
+    <img style="margin: 5px" src="https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
 
     <form method="POST" action="/profile/champs">
         <input hidden type="text" name="champ" value="<%= name %>">
@@ -33,14 +33,14 @@
     <h4>
         <% champ[name].tags.forEach((el)=>{ %>
 
-        category : <%= el %> <br>
+        Category : <%= el %> <br>
 
         <% }) %>
     </h4>
 
     <h4>Passive:<br> <%= champ[name].passive.name %> - <%= champ[name].passive.description.replace(/<.*>/, ' ') %> </h4>
 
-    <p><br> Lore: <br><%= champ[name].lore %></p>
+    <h5><br> Lore: <br><%= champ[name].lore %></h5>
 
 
 </div>

@@ -1,10 +1,16 @@
+<nav class="background-grey boarder">
+    <a class="nav-margin" href="/profile/items">Favorite Items</a>
+    <a class="nav-margin" href="/profile/summoners">Favorite Summoners</a>
+    <a class="nav-margin" href="/profile">Back to  Profile</a>
+</nav>
 
-<div class="container centered-in-column">
+
+<div class="centered-in-column">
     <% if(data === []){ %>
         <p>Account has not played any ranked games this season</p>
     <% } else { %>
 
-    <h3><%= data.summonerName %></h3>
+    <p class="title centered" ><%= data.summonerName %></p>
 
     <h4>Rank: <%= data.tier %> <%= data.rank %></h4>
 

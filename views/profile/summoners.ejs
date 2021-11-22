@@ -7,12 +7,12 @@
 
 <p class="title centered">List of Favorite Summoners</p>
 
-<div class="container centered-in-column">
+<div class="centered-in-column">
     <% favoriteSummoners.forEach((el)=>{ %>
 
         <ul>
-            <li>
-                <h3><%= el.name %> <br></h3> 
+            <li class="nav-margin">
+                <p class="subtitle"><%= el.name %> <br></p> 
                 
                 <form method="POST" action="/summoner-info">
                     <input hidden type="text" name="name" value="<%= el.name %>">

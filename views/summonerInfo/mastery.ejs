@@ -1,7 +1,13 @@
+<nav class="background-grey boarder">
+    <a class="nav-margin" href="/profile/items">Favorite Items</a>
+    <a class="nav-margin" href="/profile/summoners">Favorite Summoners</a>
+    <a class="nav-margin" href="/profile">Back to  Profile</a>
+</nav>
 
-<div class="container centered-in-column">
 
-    <h3>Champion Mastery of Summoner</h3>
+<div class="centered-in-column">
+
+    <p class="title centered">Champion Mastery of Summoner</p>
 
     <p>5 most played champions</p>
 
@@ -12,7 +18,7 @@
             <% if(championObj[name].key == el){ %>
 
                 <h3><%= name %></h3>
-                <img src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
+                <img style="margin-bottom: 10px" src="https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/<%= name %>.png" alt = "../img/champion/centered/<%= name %>_0.jpg">
 
             <% } %>
     <% }) %>
