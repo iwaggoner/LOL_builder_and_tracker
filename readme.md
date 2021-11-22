@@ -25,7 +25,7 @@ The app is formated using node express and ejs with views and controllers and a 
 Finaly the framwork bulma was used but node version is not needed feel free to remove from package.json before running npm install. Node body-parser and method-override are used to help CRUD our database with users favoirtes. 
 
 ## CRUD
-
+ 
 This app allows the user to add items, champions, and summoners to seprate table saved in psql. Each element of each table is able to be deleted, also the roles of each champion can be updated. Summoners gamestages and levels can be updated in the data base as well.
 
 ### Cool Features of the app

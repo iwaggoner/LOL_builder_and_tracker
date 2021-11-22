@@ -60,6 +60,6 @@ app.get('/', (req, res)=>{
 })
 
 
-app.listen(3000, ()=>{
-    console.log("auth_practice running on port 3000")
+app.listen(process.env.PORT || 3000, ()=>{
+   
 })
