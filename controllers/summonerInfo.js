@@ -42,7 +42,7 @@ router.post('/mastery', isLoggedIn, (req, res)=>{
         for(let i =0;i<5;i++){
             topFive.push(response.data[i].championId)
         }
-        axios.get("https://ddragon.leagueoflegends.com/cdn/11.22.1/data/en_US/champion.json")
+        axios.get("https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion.json")
         .then((response)=>{
             let championObj =  response.data.data
             const arrayOfChamps = Object.getOwnPropertyNames(response.data.data)
